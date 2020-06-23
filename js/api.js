@@ -21,6 +21,10 @@ function error(error) {
 }
 // Blok kode untuk melakukan request data json
 function getArticles() {
+    // Ambil nilai query parameter (?id=)
+    var urlParams = new URLSearchParams(window.location.search);
+    var idParam = urlParams.get("id");
+
     fetch(base_url + "articles")
         .then(status)
         .then(json)
