@@ -10,6 +10,7 @@ var urlsToCache = [
     "/css/materialize.min.css",
     "/js/materialize.min.js",
     "/js/nav.js",
+    "/js/api.js",
     "/icon.png"
 ];
 
