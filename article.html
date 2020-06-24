@@ -25,7 +25,7 @@
     </nav>
     <!-- Akhir Navigasi -->
     <div class="container" id="body-content"></div>
-    // tambahkan baris di bawah
+    <!-- floating action button -->
     <div class="fixed-action-btn">
         <a class="btn-floating btn-large red" id="save">
             <i class="large material-icons">save</i>
@@ -53,6 +53,10 @@
 
         document.addEventListener("DOMContentLoaded", function() {
             getArticleById();
+            var save = document.getElementById("save");
+            save.onclick = function() {
+                console.log("Tombol FAB di klik.");
+            }
         });
     </script>
 </body>
