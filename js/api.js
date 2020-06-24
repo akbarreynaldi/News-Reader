@@ -161,3 +161,25 @@ function getSavedArticles() {
         document.getElementById("body-content").innerHTML = articlesHTML;
     });
 }
+
+function getSavedArticleById() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var idParam = urlParams.get("id");
+
+    getById(idParam).then(function(article) {
+        articleHTML = '';
+        var articleHTML = `
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+                <img src="${article.cover}" />
+            </div>
+            <div class="card-content">
+                <span class="card-title">${article.post_title}</span>
+                ${snarkdown(article.post_content)}
+            </div>
+        </div>
+        `;
+        // Sisipkan komponen card ke dalam elemen dengan id #content
+        document.getElementById("body-content").innerHTML = articleHTML;
+    });
+}
