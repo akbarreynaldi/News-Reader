@@ -183,3 +183,17 @@ function getSavedArticleById() {
         document.getElementById("body-content").innerHTML = articleHTML;
     });
 }
+
+function getById(id) {
+    return new Promise(function(resolve, reject) {
+        dbPromised
+            .then(function(db) {
+                var tx = db.transaction("articles", "readonly");
+                var store = tx.objectStore("articles");
+                return store.get(id);
+            })
+            .then(function(article) {
+                resolve(article);
+            });
+    });
+}
