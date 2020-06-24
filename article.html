@@ -54,10 +54,13 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-            getArticleById();
+            var item = getArticleById();
             var save = document.getElementById("save");
             save.onclick = function() {
                 console.log("Tombol FAB di klik.");
+                item.then(function(article) {
+                    saveForLater(article);
+                });
             }
         });
     </script>
