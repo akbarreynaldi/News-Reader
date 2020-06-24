@@ -46,7 +46,7 @@ function getArticles() {
                     `;
                     });
                     // Sisipkan komponen card ke dalam elemen dengan id #content
-                    document.getElementById("body-content").innerHTML = articlesHTML;
+                    document.getElementById("articles").innerHTML = articlesHTML;
                 });
             }
         });
@@ -76,7 +76,7 @@ function getArticles() {
                 `;
             });
             // Sisipkan komponen card ke dalam elemen dengan id #content
-            document.getElementById("body-content").innerHTML = articlesHTML;
+            document.getElementById("articles").innerHTML = articlesHTML;
         })
         .catch(error);
 }
@@ -158,7 +158,7 @@ function getSavedArticles() {
                     `;
         });
         // Sisipkan komponen card ke dalam elemen dengan id #body-content
-        document.getElementById("body-content").innerHTML = articlesHTML;
+        document.getElementById("articles").innerHTML = articlesHTML;
     });
 }
 
