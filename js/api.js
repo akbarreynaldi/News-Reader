@@ -147,7 +147,7 @@ function getSavedArticles() {
                     <div class="card">
                         <a href="./article.html?id=${article.ID}&saved=true">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img src="${article.cover}" />
+                            <img src="${article.thumbnail}" />
                         </div>
                         </a>
                         <div class="card-content">
