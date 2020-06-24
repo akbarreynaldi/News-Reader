@@ -32,18 +32,18 @@ function getArticles() {
                     var articlesHTML = "";
                     data.result.forEach(function(article) {
                         articlesHTML += `
-                  <div class="card">
-                    <a href="./article.html?id=${article.id}">
-                      <div class="card-image waves-effect waves-block waves-light">
-                        <img src="${article.thumbnail}" />
-                      </div>
-                    </a>
-                    <div class="card-content">
-                      <span class="card-title truncate">${article.title}</span>
-                      <p>${article.description}</p>
+                    <div class="card">
+                        <a href="./article.html?id=${article.id}">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img src="${article.thumbnail}" />
+                        </div>
+                        </a>
+                        <div class="card-content">
+                            <span class="card-title truncate">${article.title}</span>
+                            <p>${article.description}</p>
+                        </div>
                     </div>
-                  </div>
-                `;
+                    `;
                     });
                     // Sisipkan komponen card ke dalam elemen dengan id #content
                     document.getElementById("articles").innerHTML = articlesHTML;
@@ -62,18 +62,18 @@ function getArticles() {
             var articlesHTML = "";
             data.result.forEach(function(article) {
                 articlesHTML += `
-              <div class="card">
-                <a href="./article.html?id=${article.id}">
-                  <div class="card-image waves-effect waves-block waves-light">
-                    <img src="${article.thumbnail}" />
-                  </div>
-                </a>
-                <div class="card-content">
-                  <span class="card-title truncate">${article.title}</span>
-                  <p>${article.description}</p>
+                <div class="card">
+                    <a href="./article.html?id=${article.id}">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img src="${article.thumbnail}" />
+                    </div>
+                    </a>
+                    <div class="card-content">
+                        <span class="card-title truncate">${article.title}</span>
+                        <p>${article.description}</p>
+                    </div>
                 </div>
-              </div>
-            `;
+                `;
             });
             // Sisipkan komponen card ke dalam elemen dengan id #content
             document.getElementById("articles").innerHTML = articlesHTML;
@@ -133,5 +133,31 @@ function getArticleById() {
                 document.getElementById("body-content").innerHTML = articleHTML;
                 resolve(data);
             });
+    });
+}
+
+function getSavedArticles() {
+    getAll().then(function(articles) {
+        console.log(articles);
+        // Menyusun komponen card artikel secara dinamis
+        var articlesHTML = "";
+        articles.forEach(function(article) {
+            var description = article.post_content.substring(0, 100);
+            articlesHTML += `
+                    <div class="card">
+                        <a href="./article.html?id=${article.ID}">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img src="${article.cover}" />
+                        </div>
+                        </a>
+                        <div class="card-content">
+                            <span class="card-title truncate">${article.post_title}</span>
+                            <p>${description}</p>
+                        </div>
+                    </div>
+                    `;
+        });
+        // Sisipkan komponen card ke dalam elemen dengan id #body-content
+        document.getElementById("body-content").innerHTML = articlesHTML;
     });
 }
