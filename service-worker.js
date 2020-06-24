@@ -1,5 +1,5 @@
 //menyimpan asset ke cache storage
-const CACHE_NAME = "firstpwa-v1";
+const CACHE_NAME = "codepolitan-reader-lite-v2";
 var urlsToCache = [
     "/",
     "/nav.html",
@@ -8,10 +8,13 @@ var urlsToCache = [
     "/pages/home.html",
     "/pages/about.html",
     "/pages/contact.html",
+    "/pages/saved.html",
     "/css/materialize.min.css",
     "/js/materialize.min.js",
     "/js/nav.js",
     "/js/api.js",
+    "/js/idb.js",
+    "/js/db.js",
     "/icon.png"
 ];
 
@@ -45,13 +48,13 @@ self.addEventListener("fetch", function(event) {
 });
 
 //menghapus cache lama
-self.addEventListener("activate", function(event) {
+self.addEventListener('activate', function(event) {
+    console.log('Aktivasi service worker baru');
     event.waitUntil(
         caches.keys().then(function(cacheNames) {
             return Promise.all(
                 cacheNames.map(function(cacheName) {
-                    if (cacheName != CACHE_NAME) {
-                        console.log("ServiceWorker: cache " + cacheName + " dihapus");
+                    if (cacheName !== CACHE_NAME && cacheName.startsWith("codepolitan-reader-lite")) {
                         return caches.delete(cacheName);
                     }
                 })
