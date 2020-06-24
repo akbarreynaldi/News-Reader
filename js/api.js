@@ -145,7 +145,7 @@ function getSavedArticles() {
             var description = article.post_content.substring(0, 100);
             articlesHTML += `
                     <div class="card">
-                        <a href="./article.html?id=${article.ID}">
+                        <a href="./article.html?id=${article.ID}&saved=true">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img src="${article.cover}" />
                         </div>
