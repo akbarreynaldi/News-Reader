@@ -158,7 +158,7 @@ function getSavedArticles() {
                     `;
         });
         // Sisipkan komponen card ke dalam elemen dengan id #body-content
-        document.getElementById("articles").innerHTML = articlesHTML;
+        document.getElementById("body-content").innerHTML = articlesHTML;
     });
 }
 
