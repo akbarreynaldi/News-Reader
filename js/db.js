@@ -18,3 +18,17 @@ function saveForLater(article) {
             console.log("Artikel berhasil di simpan.");
         });
 }
+
+function getAll() {
+    return new Promise(function(resolve, reject) {
+        dbPromised
+            .then(function(db) {
+                var tx = db.transaction("articles", "readonly");
+                var store = tx.objectStore("articles");
+                return store.getAll();
+            })
+            .then(function(articles) {
+                resolve(articles);
+            });
+    });
+}
